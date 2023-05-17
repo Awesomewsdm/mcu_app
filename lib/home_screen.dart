@@ -3,6 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:mcu_app/colors.dart';
+import 'package:mcu_app/hostel_search_page.dart';
 import 'images.dart';
 import 'package:im_stepper/stepper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -55,8 +56,18 @@ class _HomeState extends State<Home> {
                     height: 80,
                     fit: BoxFit.fill,
                   ),
-                  const IconWidget(
-                    icon: EvaIcons.search,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const MapScreen()),
+                        ),
+                      );
+                    },
+                    child: const IconWidget(
+                      icon: EvaIcons.search,
+                    ),
                   ),
                 ],
               ),
@@ -95,9 +106,10 @@ class _HomeState extends State<Home> {
                               Text(
                                 "1h 49mins",
                                 style: TextStyle(
-                                    fontSize: 15,
-                                    color: whiteColor,
-                                    fontWeight: FontWeight.normal),
+                                  fontSize: 15,
+                                  color: whiteColor,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
                               IconWidget(
                                 icon: Ionicons.remove_outline,
