@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:mcu_app/animation_screen.dart';
 import 'package:mcu_app/colors.dart';
 import 'package:mcu_app/hostel_search_page.dart';
 import 'images.dart';
@@ -74,10 +74,10 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 100,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "SPIDER-MAN: FAR FROM HOME",
                     style: TextStyle(
                         fontSize: 38,
@@ -85,15 +85,25 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        IconWidget(
-                          icon: Ionicons.play_circle_outline,
-                          iconSize: 65.0,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const AnimationScreen(),
+                              ),
+                            );
+                          },
+                          child: const IconWidget(
+                            icon: Ionicons.play_circle_outline,
+                            iconSize: 65.0,
+                          ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(
                             left: 20.0,
                             top: 8.0,
@@ -141,7 +151,7 @@ class _HomeState extends State<Home> {
               DotStepper(
                 activeStep: 0,
                 dotCount: mcuImages.length,
-                spacing: 100,
+                spacing: 10,
                 shape: Shape.circle,
                 lineConnectorsEnabled: true,
                 lineConnectorDecoration: const LineConnectorDecoration(
